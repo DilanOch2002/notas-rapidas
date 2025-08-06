@@ -7,12 +7,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Conexión a MySQL
 const dbConfig = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
+  host: process.env.DB_HOST || 'notas-db',  // Nombre del servicio en Render
+  user: process.env.DB_USER || 'notasuser',
+  password: process.env.DB_PASS || 'notaspwd',
+  database: process.env.DB_NAME || 'notasdb',
   waitForConnections: true,
   connectionLimit: 10
 };
